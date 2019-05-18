@@ -31,13 +31,20 @@ class Owner {
         this.name = name;
         this.address = address;
     }
-
-    
+    set phone(phone){
+        const phoneNormalized = phone.replace(/[^0-9]/g, '');
+        this._phone = phoneNormalized;
+    }
+    get phone() {
+        return this._phone;
+    }
 }
   
 const ernie = new Pet('dog', 1, 'pug', 'yip yip');
-//const vera = new Pet('dog', 8, 'border collie', 'woof woof');
+const vera = new Pet('dog', 8, 'border collie', 'woof woof');
 
-ernie.owner = "Andy";
+ernie.owner = new Owner('Andy', '5 Cambridge Road');
+ernie.owner.phone = '(01273) 671 707';
 
-console.log(ernie.owner);
+console.log(ernie.owner.name);
+console.log(ernie.owner.phone);
