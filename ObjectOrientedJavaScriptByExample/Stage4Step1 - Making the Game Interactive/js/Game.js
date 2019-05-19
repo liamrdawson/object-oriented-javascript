@@ -34,4 +34,16 @@ class Game {
         this.activePlayer.activeToken.drawHTMLToken();
         this.ready = true;
     }
+
+    handleKeydown(e) {
+        if (this.ready) {
+            if (e.key === 'ArrowLeft') {
+                this.activePlayer.activeToken.moveLeft();
+            } else if (e.key === 'ArrowRight') {
+                this.activePlayer.activeToken.moveRight(this.board.columns);
+            } else if (e.key === 'ArrowDown') {
+                // drop
+            }
+        }
+    }
 }
